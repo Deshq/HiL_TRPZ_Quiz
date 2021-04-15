@@ -1,0 +1,506 @@
+﻿<UserControl x:Class="HiL_Store.Views.UserView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HiL_Store.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1000">
+    <Border CornerRadius="5" Background="Black">
+        <Grid>
+            <Grid x:Name="CreateTest" Margin="0,0,704,0">
+                <Button 
+                Content="Get CategoryList" 
+                HorizontalAlignment="Left" 
+                Height="24" 
+                Margin="50,69,0,0" 
+                VerticalAlignment="Top" 
+                Width="200" 
+                RenderTransformOrigin="0.495,1.19" 
+                Background="{x:Null}" 
+                BorderBrush="{x:Null}" 
+                Foreground="White" 
+                FontFamily="NSimSun" 
+                FontSize="16"               
+                Command="{Binding CategoryGetCommand}"/>
+
+                <StackPanel HorizontalAlignment="Left" Margin="50,98,0,452">
+                    <UniformGrid Background="{StaticResource MaterialDesignBackground}" Columns="1">
+                        <ListBox 
+                            Width="200"
+                            VerticalAlignment="Center"
+                            SelectionMode="Extended"
+                            Grid.Row="1"
+                            HorizontalContentAlignment="Stretch"
+                            Background="Transparent"
+                            ItemsSource = "{Binding GetCollection}"
+                            BorderThickness="0"                  
+                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"                                                     
+                            SelectedItem="{Binding Category}">
+                        </ListBox>
+                    </UniformGrid>
+                </StackPanel>
+
+                <Rectangle 
+                    HorizontalAlignment="Left" 
+                    Height="41" 
+                    Margin="70,321,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="157" 
+                    Stroke="White"/>
+                <Path 
+                    Data="M164,338 L124.16667,338 123.49966,369.5" 
+                    HorizontalAlignment="Left" 
+                    Height="32.5" 
+                    Margin="51,307,0,0" 
+                    Stretch="Fill"
+                    Stroke="White" 
+                    VerticalAlignment="Top" 
+                    Width="41.5" 
+                    RenderTransformOrigin="0.492,0.515"/>
+                <Path 
+                    Data="M164,338 L124.16667,338 123.49966,369.5" 
+                    HorizontalAlignment="Left" 
+                    Height="32.5" 
+                    Margin="206,346,0,0" 
+                    Stretch="Fill" 
+                    Stroke="White" 
+                    VerticalAlignment="Top" 
+                    Width="41.5" 
+                    RenderTransformOrigin="0.5,0.5">
+
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="179.837"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+
+                </Path>
+
+                <Button 
+                    Content="START TEST" 
+                    HorizontalAlignment="Left" 
+                    Height="41" 
+                    Margin="70,321,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="157" 
+                    RenderTransformOrigin="0.495,1.19" 
+                    Background="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    Foreground="White" 
+                    FontFamily="NSimSun" 
+                    FontSize="16"               
+                    Command="{Binding StartTestCommand}"/>
+            </Grid>
+
+            <Path 
+                Data="M81.35,156.937 L373.799,156.937" 
+                Fill="White" 
+                HorizontalAlignment="Left" 
+                Height="40" 
+                Margin="-82,375,0,0" 
+                Stretch="Fill" 
+                Stroke="White" 
+                VerticalAlignment="Top" 
+                Width="758" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90.317"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+
+            <Grid x:Name="Test" Margin="301,0,0,0">
+
+                <StackPanel HorizontalAlignment="Left" Margin="48,118,0,166">
+                    <UniformGrid Background="{StaticResource MaterialDesignBackground}" Columns="1">
+                        <ListBox 
+                            Width="200"
+                            VerticalAlignment="Center"
+                            SelectionMode="Extended"
+                            Grid.Row="1"
+                            HorizontalContentAlignment="Stretch"
+                            Background="Transparent"
+                            ItemsSource = "{Binding GetCollection2}"
+                            BorderThickness="0"                  
+                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"                                                     
+                            SelectedItem="{Binding Category2}">
+                        </ListBox>
+                    </UniformGrid>
+                </StackPanel>
+
+
+
+
+                <TextBox 
+                    x:Name = "QuestionBox"
+                    HorizontalAlignment="Left" 
+                    Height="34" 
+                    Margin="350,99,0,0" 
+                    TextWrapping="Wrap"  
+                    VerticalAlignment="Top" 
+                    Width="292" 
+                    Foreground="White" 
+                    SelectionBrush="#FF232629" 
+                    FontFamily="NSimSun" 
+                    FontSize="16" 
+                    HorizontalContentAlignment="Left" 
+                    VerticalContentAlignment="Center" MaxLength="12"
+                    Text="{Binding Question, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock IsHitTestVisible="False" FontFamily="NSimSun" Text="Question" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="350,107,0,0" Foreground="White"  FontSize="16" Height="25" Width="293">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=QuestionBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Path 
+                    Data="M81.35,156.937 L373.799,156.937" 
+                    Fill="White" 
+                    HorizontalAlignment="Left" 
+                    Height="1" 
+                    Margin="350,133.106,0,0" 
+                    Stretch="Fill" 
+                    Stroke="White" 
+                    VerticalAlignment="Top" 
+                    Width="293.449"/>
+
+
+                <TextBox 
+                x:Name = "AnswerABox"
+                HorizontalAlignment="Left" 
+                Height="34" 
+                Margin="350,162,0,0" 
+                TextWrapping="Wrap"  
+                VerticalAlignment="Top" 
+                Width="293" 
+                Foreground="White" 
+                SelectionBrush="#FF232629" 
+                FontFamily="NSimSun" 
+                FontSize="16" 
+                HorizontalContentAlignment="Left" 
+                VerticalContentAlignment="Center" MaxLength="12"
+                Text="{Binding AnswerA, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock IsHitTestVisible="False" FontFamily="NSimSun" Text="AnswerA" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="350,170,0,0" Foreground="White"  FontSize="16" Height="25" Width="293">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=AnswerABox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Path 
+                Data="M81.35,156.937 L373.799,156.937" 
+                Fill="White" 
+                HorizontalAlignment="Left" 
+                Height="1" 
+                Margin="350,196,0,0" 
+                Stretch="Fill" 
+                Stroke="White" 
+                VerticalAlignment="Top" 
+                Width="293.449"/>
+
+
+                <TextBox 
+                x:Name = "AnswerBBox"
+                HorizontalAlignment="Left" 
+                Height="34" 
+                Margin="350,225,0,0" 
+                TextWrapping="Wrap"  
+                VerticalAlignment="Top" 
+                Width="293" 
+                Foreground="White" 
+                SelectionBrush="#FF232629" 
+                FontFamily="NSimSun" 
+                FontSize="16" 
+                HorizontalContentAlignment="Left" 
+                VerticalContentAlignment="Center" MaxLength="12"
+                Text="{Binding AnswerB, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock IsHitTestVisible="False" FontFamily="NSimSun" Text="AnswerB" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="350,233,0,0" Foreground="White"  FontSize="16" Height="25" Width="293">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=AnswerBBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Path 
+                Data="M81.35,156.937 L373.799,156.937" 
+                Fill="White" 
+                HorizontalAlignment="Left" 
+                Height="1" 
+                Margin="350,259,0,0" 
+                Stretch="Fill" 
+                Stroke="White" 
+                VerticalAlignment="Top" 
+                Width="293.449"/>
+
+                <TextBox 
+                x:Name = "AnswerCBox"
+                HorizontalAlignment="Left" 
+                Height="34" 
+                Margin="350,288,0,0" 
+                TextWrapping="Wrap"  
+                VerticalAlignment="Top" 
+                Width="293" 
+                Foreground="White" 
+                SelectionBrush="#FF232629" 
+                FontFamily="NSimSun" 
+                FontSize="16" 
+                HorizontalContentAlignment="Left" 
+                VerticalContentAlignment="Center" MaxLength="12"
+                Text="{Binding AnswerC, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock IsHitTestVisible="False" FontFamily="NSimSun" Text="AnswerC" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="350,296,0,0" Foreground="White"  FontSize="16" Height="25" Width="293">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=AnswerCBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Path 
+                Data="M81.35,156.937 L373.799,156.937" 
+                Fill="White" 
+                HorizontalAlignment="Left" 
+                Height="1" 
+                Margin="350,322,0,0" 
+                Stretch="Fill" 
+                Stroke="White" 
+                VerticalAlignment="Top" 
+                Width="293.449"/>
+
+                <TextBox 
+                x:Name = "AnswerDBox"
+                HorizontalAlignment="Left" 
+                Height="34" 
+                Margin="350,351,0,0" 
+                TextWrapping="Wrap"  
+                VerticalAlignment="Top" 
+                Width="293" 
+                Foreground="White" 
+                SelectionBrush="#FF232629" 
+                FontFamily="NSimSun" 
+                FontSize="16" 
+                HorizontalContentAlignment="Left" 
+                VerticalContentAlignment="Center" MaxLength="12"
+                Text="{Binding AnswerD, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock IsHitTestVisible="False" FontFamily="NSimSun" Text="AnswerD" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="350,359,0,0" Foreground="White"  FontSize="16" Height="25" Width="293">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=AnswerDBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Path 
+                Data="M81.35,156.937 L373.799,156.937" 
+                Fill="White" 
+                HorizontalAlignment="Left" 
+                Height="1" 
+                Margin="350,385,0,0" 
+                Stretch="Fill" 
+                Stroke="White" 
+                VerticalAlignment="Top" 
+                Width="293.449"/>
+
+                <Rectangle 
+                    HorizontalAlignment="Left" 
+                    Height="40" 
+                    Margin="350,448,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="64" 
+                    Stroke="White"/>
+
+                <Button 
+                    Content="A" 
+                    HorizontalAlignment="Left" 
+                    Height="40" 
+                    Margin="350,448,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="64" 
+                    RenderTransformOrigin="0.495,1.19" 
+                    Background="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    Foreground="White" 
+                    FontFamily="NSimSun" 
+                    FontSize="16"               
+                    Command="{Binding ACommand}"/>
+
+                <Rectangle 
+                    HorizontalAlignment="Left" 
+                    Height="40" 
+                    Margin="432,448,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="64" 
+                    Stroke="White"/>
+
+                <Button 
+                    Content="B" 
+                    HorizontalAlignment="Left" 
+                    Height="40" 
+                    Margin="432,448,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="64" 
+                    RenderTransformOrigin="0.495,1.19" 
+                    Background="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    Foreground="White" 
+                    FontFamily="NSimSun" 
+                    FontSize="16"               
+                    Command="{Binding BCommand}"/>
+
+                <Rectangle 
+                    HorizontalAlignment="Left" 
+                    Height="40" 
+                    Margin="514,448,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="64" 
+                    Stroke="White"/>
+
+                <Button 
+                    Content="C" 
+                    HorizontalAlignment="Left" 
+                    Height="40" 
+                    Margin="514,448,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="64" 
+                    RenderTransformOrigin="0.495,1.19" 
+                    Background="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    Foreground="White" 
+                    FontFamily="NSimSun" 
+                    FontSize="16"               
+                    Command="{Binding CCommand}"/>
+
+
+                <Rectangle 
+                    HorizontalAlignment="Left" 
+                    Height="40" 
+                    Margin="596,448,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="64" 
+                    Stroke="White"/>
+
+                <Button 
+                    Content="D" 
+                    HorizontalAlignment="Left" 
+                    Height="40" 
+                    Margin="596,448,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="64" 
+                    RenderTransformOrigin="0.495,1.19" 
+                    Background="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    Foreground="White" 
+                    FontFamily="NSimSun" 
+                    FontSize="16"               
+                    Command="{Binding DCommand}"/>
+
+
+
+                <Path 
+                Data="M81.35,156.937 L373.799,156.937" 
+                Fill="White" 
+                HorizontalAlignment="Left" 
+                Height="1" 
+                Margin="350,612,0,0" 
+                Stretch="Fill" 
+                Stroke="White" 
+                VerticalAlignment="Top" 
+                Width="293.449"/>
+
+                <TextBox 
+                x:Name = "Result"
+                HorizontalAlignment="Left" 
+                Height="34" 
+                Margin="350,578,0,0" 
+                TextWrapping="Wrap"  
+                VerticalAlignment="Top" 
+                Width="293" 
+                Foreground="White" 
+                SelectionBrush="#FF232629" 
+                FontFamily="NSimSun" 
+                FontSize="16" 
+                HorizontalContentAlignment="Left" 
+                VerticalContentAlignment="Center" MaxLength="12"
+                Text="{Binding FinalResul, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock IsHitTestVisible="False" FontFamily="NSimSun" Text="Result" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="350,586,0,0" Foreground="White"  FontSize="16" Height="25" Width="293">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=Result}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Rectangle 
+                    HorizontalAlignment="Left" 
+                    Height="40" 
+                    Margin="421,672,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="157" 
+                    Stroke="White"/>
+
+                <Button 
+                    Content="End Test" 
+                    HorizontalAlignment="Left" 
+                    Height="41" 
+                    Margin="421,672,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="157" 
+                    RenderTransformOrigin="0.495,1.19" 
+                    Background="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    Foreground="White" 
+                    FontFamily="NSimSun" 
+                    FontSize="16"               
+                    Command="{Binding DisplayUserResultCommand}"/>
+
+
+
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

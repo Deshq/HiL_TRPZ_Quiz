@@ -1,0 +1,39 @@
+﻿<Application x:Class="HiL_Store.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HiL_Store"
+             xmlns:viewmodels="clr-namespace:HiL_Store.ViewModels"
+             xmlns:views="clr-namespace:HiL_Store.Views"
+             xmlns:views2="clr-namespace:HiL_Store.Views"
+             xmlns:views3="clr-namespace:HiL_Store.Views"
+             xmlns:views4="clr-namespace:HiL_Store.Views">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+
+            <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
+                <views:Login />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodels:MainViewModel}">
+                <views2:MainView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodels:AdminViewModel}">
+                <views3:AdminView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodels:UserViewModel}">
+                <views4:UserView/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
