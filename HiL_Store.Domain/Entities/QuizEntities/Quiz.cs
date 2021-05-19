@@ -13,5 +13,6 @@ namespace HiL_Store.Domain.Entities.QuizEntities
         public string AnswerC { get; set; }
         public string AnswerD { get; set; }
         public string CorrectAnswer { get; set; }
+
     }
 }

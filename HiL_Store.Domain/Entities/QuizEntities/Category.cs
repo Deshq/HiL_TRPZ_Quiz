@@ -8,5 +8,10 @@ namespace HiL_Store.Domain.Entities.QuizEntities
     public class Category : DomainObject
     {        
         public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

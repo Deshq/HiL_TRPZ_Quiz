@@ -1,5 +1,5 @@
 ﻿using HiL_Store.Domain.Entities;
-using HiL_Store.Domain.Interfaces;
+using HiL_Store.Domain.Interfaces.Authentication;
 using HiL_Store.State.Accounts;
 using System;
 using System.Collections.Generic;
@@ -41,6 +41,10 @@ namespace HiL_Store.State.Authenticators
             CurrentAccount = await _authenticationService.Login(username, password);
         }
 
+        public async Task LoginAsAdmin(string username, string password)
+        {
+            await _authenticationService.LoginAsAdmin(username, password);
+        }
         public void Logout()
         {
             CurrentAccount = null;

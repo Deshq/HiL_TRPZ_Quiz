@@ -1,4 +1,4 @@
-﻿using HiL_Store.Domain.Interfaces;
+﻿using HiL_Store.Domain.Interfaces.Authentication;
 using HiL_Store.State.Authenticators;
 using HiL_Store.State.Navigators;
 using HiL_Store.ViewModels;

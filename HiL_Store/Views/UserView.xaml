@@ -24,7 +24,7 @@
                 FontSize="16"               
                 Command="{Binding CategoryGetCommand}"/>
 
-                <StackPanel HorizontalAlignment="Left" Margin="50,98,0,452">
+                <StackPanel HorizontalAlignment="Left" Margin="50,100,0,450">
                     <UniformGrid Background="{StaticResource MaterialDesignBackground}" Columns="1">
                         <ListBox 
                             Width="200"
@@ -135,9 +135,6 @@
                     </UniformGrid>
                 </StackPanel>
 
-
-
-
                 <TextBox 
                     x:Name = "QuestionBox"
                     HorizontalAlignment="Left" 
@@ -152,7 +149,7 @@
                     FontSize="16" 
                     HorizontalContentAlignment="Left" 
                     VerticalContentAlignment="Center" MaxLength="12"
-                    Text="{Binding Question, UpdateSourceTrigger=PropertyChanged}"/>
+                    Text="{Binding Question}"/>
 
                 <TextBlock IsHitTestVisible="False" FontFamily="NSimSun" Text="Question" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="350,107,0,0" Foreground="White"  FontSize="16" Height="25" Width="293">
                     <TextBlock.Style>
@@ -177,7 +174,6 @@
                     Stroke="White" 
                     VerticalAlignment="Top" 
                     Width="293.449"/>
-
 
                 <TextBox 
                 x:Name = "AnswerABox"

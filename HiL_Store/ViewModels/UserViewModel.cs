@@ -1,6 +1,8 @@
 ﻿using HiL_Store.Commands;
 using HiL_Store.Domain.Entities.QuizEntities;
 using HiL_Store.Domain.Interfaces;
+using HiL_Store.Domain.Interfaces.CreationService;
+using HiL_Store.Domain.Interfaces.Repository;
 using HiL_Store.State.Accounts;
 using HiL_Store.State.Authenticators;
 using HiL_Store.State.Navigators;
@@ -78,7 +80,7 @@ namespace HiL_Store.ViewModels
 			set
 			{
 				_question = _category2.Quiz.Question;
-				OnPropertyChanged(nameof(Question));
+				OnPropertyChanged("Question");
 			}
 		}
 
@@ -133,7 +135,7 @@ namespace HiL_Store.ViewModels
 			set
 			{
 				_countRightAnswer = value;
-				OnPropertyChanged(nameof(CountRightAnswer));
+				OnPropertyChanged("CountRightAnswer");
 			}
 		}
 

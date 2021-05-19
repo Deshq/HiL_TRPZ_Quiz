@@ -19,5 +19,11 @@ namespace HiL_Store.Domain.Entities.QuizEntities
         [ForeignKey(nameof(QuizID))]
         public Quiz Quiz { get; set; }
 
+
+        public override string ToString()
+        {
+            return Quiz.Question;
+        }
+
     }
 }

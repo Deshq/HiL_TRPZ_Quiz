@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiL_Store.Domain", "HiL_Sto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiL_Store.EntityFramework", "HiL_Store.EntityFramework\HiL_Store.EntityFramework.csproj", "{62F40271-208D-40CA-ABFA-63F918BC491D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiL_Store.Domain.Tests", "HiL_Store.Domain.Tests\HiL_Store.Domain.Tests.csproj", "{FA4F3493-304A-4372-A8CF-EE64C09E11DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{62F40271-208D-40CA-ABFA-63F918BC491D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62F40271-208D-40CA-ABFA-63F918BC491D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62F40271-208D-40CA-ABFA-63F918BC491D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA4F3493-304A-4372-A8CF-EE64C09E11DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA4F3493-304A-4372-A8CF-EE64C09E11DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA4F3493-304A-4372-A8CF-EE64C09E11DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA4F3493-304A-4372-A8CF-EE64C09E11DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

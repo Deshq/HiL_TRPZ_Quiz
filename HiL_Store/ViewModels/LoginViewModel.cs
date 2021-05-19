@@ -135,7 +135,8 @@ namespace HiL_Store.ViewModels
         //----------------------------------///
 
 
-        public LoginViewModel(IAuthenticator authenticator, IRenavigator loginRenavigatorToHome, IRenavigator registerRenavigator, IRenavigator loginRenavigatorToAdminHome)
+        public LoginViewModel(IAuthenticator authenticator, IRenavigator loginRenavigatorToHome,
+            IRenavigator registerRenavigator, IRenavigator loginRenavigatorToAdminHome)
         {
 
             //-----------Login--------//
@@ -143,7 +144,7 @@ namespace HiL_Store.ViewModels
             ErrorMessageViewModel = new MessageViewModel();
 
             LoginCommand = new LoginCommand(this, authenticator, loginRenavigatorToHome);
-            ViewAdminHomeCommand = new RenavigateCommand(loginRenavigatorToAdminHome);
+            ViewAdminHomeCommand = new LoginAdminCommand(this, authenticator, loginRenavigatorToAdminHome);
 
             //---Register----///
 

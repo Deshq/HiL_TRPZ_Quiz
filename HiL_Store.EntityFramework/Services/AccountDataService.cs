@@ -1,5 +1,5 @@
 ﻿using HiL_Store.Domain.Entities;
-using HiL_Store.Domain.Interfaces;
+using HiL_Store.Domain.Interfaces.Repository;
 using HiL_Store.EntityFramework.Services.Common;
 using Microsoft.EntityFrameworkCore;
 using System;

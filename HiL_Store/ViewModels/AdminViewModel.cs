@@ -1,6 +1,7 @@
 ﻿using HiL_Store.Commands;
 using HiL_Store.Domain.Entities.QuizEntities;
-using HiL_Store.Domain.Interfaces;
+using HiL_Store.Domain.Interfaces.CreationService;
+using HiL_Store.Domain.Interfaces.Repository;
 using HiL_Store.State.Navigators;
 using System;
 using System.Collections.Generic;

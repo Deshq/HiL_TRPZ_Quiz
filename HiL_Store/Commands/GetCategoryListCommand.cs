@@ -1,4 +1,4 @@
-﻿using HiL_Store.Domain.Interfaces;
+﻿using HiL_Store.Domain.Interfaces.Repository;
 using HiL_Store.ViewModels;
 using System;
 using System.Collections.Generic;

@@ -1,5 +1,5 @@
 ﻿using HiL_Store.Domain.Entities.QuizEntities;
-using HiL_Store.Domain.Interfaces;
+using HiL_Store.Domain.Interfaces.Repository;
 using HiL_Store.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -26,6 +26,8 @@ namespace HiL_Store.Commands
             try
             {
                 _adminViewModel.GetCollection = await _categoryService.GetAll();
+
+                _adminViewModel.GetCollection.ToString();
 
                 /*IEnumerable<Category> categoryEnumerable = await _categoryService.GetAll();
 

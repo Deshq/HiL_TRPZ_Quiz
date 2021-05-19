@@ -1,5 +1,6 @@
 ﻿using HiL_Store.Domain.Entities.QuizEntities;
 using HiL_Store.Domain.Interfaces;
+using HiL_Store.Domain.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Text;
