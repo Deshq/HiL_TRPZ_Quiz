@@ -25,6 +25,7 @@ namespace HiL_Store.Commands
 
             try
             {
+           
                 _adminViewModel.GetCollection = await _categoryService.GetAll();
 
                 _adminViewModel.GetCollection.ToString();

@@ -1,4 +1,5 @@
 ﻿using HiL_Store.Domain.Interfaces.CreationService;
+using HiL_Store.Domain.Interfaces.Repository;
 using HiL_Store.State.Accounts;
 using HiL_Store.ViewModels;
 using System;
@@ -12,12 +13,20 @@ namespace HiL_Store.Commands
     {
         private readonly AdminViewModel _adminViewModel;
         private readonly ICategoryCreationService _categoryCreationService;
-        
+        private readonly ICategoryService _categoryService;
+
 
         public CategoryCreationCommand(AdminViewModel adminViewModel, ICategoryCreationService categoryCreationService)
         {
             this._adminViewModel = adminViewModel;
             this._categoryCreationService = categoryCreationService;     
+        }
+
+        public CategoryCreationCommand(AdminViewModel adminViewModel, ICategoryCreationService categoryCreationService, ICategoryService categoryService)
+        {
+            this._adminViewModel = adminViewModel;
+            this._categoryCreationService = categoryCreationService;
+            this._categoryService = categoryService;
         }
 
         public override async Task ExecuteAsync(object parameter)
@@ -26,7 +35,10 @@ namespace HiL_Store.Commands
 
             try
             {
+
                 CreationCategoryResult result =  await _categoryCreationService.Creation(_adminViewModel.CategoryName);
+
+                _adminViewModel.CategoryGetCommand.Execute(_categoryService);
 
                 switch (result)
                 {
