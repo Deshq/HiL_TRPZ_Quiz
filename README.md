@@ -2,12 +2,12 @@
 <h1 align="center">HiL</h1>
 <h2 align="center">
   
-<img align="left"  src="./HiL_Store/Resources/HIL2.png" width="57%" >
+<img align="left"  src="./HiL_Store/Resources/HIL2.png" width="55%" >
 
-<h4> HiL - small application for testing students.</h4> 
-  
-<h6>In which there is registration and authorization for different users: Admin / User. Different actions are available in the application depending on the user's role. Provides the student (user) the opportunity to log in, select a topic for testing and answer questions provided by the system automatically. Provides the teacher (administrator) the opportunity to log in, add the name of the subject and topic, as well as questions.</h6> 
+<h6>HiL - small application for testing students. In which there is registration and authorization for different users: Admin / User. Different actions are available in the application depending on the user's role. Provides the student (user) the opportunity to log in, select a topic for testing and answer questions provided by the system automatically. Provides the teacher (administrator) the opportunity to log in, add the name of the subject and topic, as well as questions.</h6> 
 
+---
+---
 ---
   
 <h5 align="center">Hidden in List is my free and open-source project. </h5> 
