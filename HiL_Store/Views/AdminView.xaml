@@ -4,12 +4,60 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HiL_Store.Views"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1000">
     <Grid>
 
+        <Grid x:Name="Image" 
+              Margin="92,70,570,496">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="68*"/>
+                <ColumnDefinition Width="45*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="191*"/>
+                <RowDefinition Height="185*"/>
+            </Grid.RowDefinitions>
+            <Border 
+                CornerRadius="12" 
+                BorderBrush="White" 
+                BorderThickness="2"              
+                Height="144" 
+                Width="328"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top"
+                Margin="0,20,0,0" 
+                Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Resources/HiL2.png" 
+                                Stretch="UniformToFill"/>
+                </Border.Background>
+                <Grid>
+                    <Grid 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Top" 
+                        Margin="16">
+                        <Rectangle 
+                            Height="21" 
+                            RadiusX="8" 
+                            RadiusY="8" 
+                            Width="41" 
+                            Fill="#FFF7542E"/>
+                        <TextBlock 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            Foreground="White" 
+                            FontWeight="SemiBold" 
+                            FontSize="8" 
+                            Text="ADMIN"/>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+
         <Grid x:Name="Category" 
-              Margin="74,38,629,215">
+              Margin="112,346,590,73">
 
             <TextBlock 
                 HorizontalAlignment="Left" 
@@ -79,7 +127,7 @@
                 FontSize="16"               
                 Command="{Binding CategoryCreationCommand}"/>
 
-           
+
             <TextBlock 
                 IsHitTestVisible="False" 
                 FontFamily="NSimSun"            
@@ -93,7 +141,7 @@
                 DataContext="{Binding ErrorMessageViewModel}"
                 Text="{Binding Message}"     
                 Visibility="{Binding HasMessage, Converter={StaticResource BooleanToVisibilityConverter}}">
-                              
+
 
                 <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
@@ -157,57 +205,62 @@
                 FontSize="16"               
                 Command="{Binding CountQuestionsCreationCommand}"/>
 
-            <Button 
-                Content="Get CategoryList" 
-                HorizontalAlignment="Left" 
-                Height="24" 
-                Margin="50,329,0,0" 
-                VerticalAlignment="Top" 
-                Width="200" 
-                RenderTransformOrigin="0.495,1.19" 
-                Background="{x:Null}" 
-                BorderBrush="{x:Null}" 
-                Foreground="White" 
-                FontFamily="NSimSun" 
-                FontSize="16"               
-                Command="{Binding CategoryGetCommand}"/>
 
-            <StackPanel HorizontalAlignment="Left" Margin="50,358,0,23">
-                <UniformGrid Background="{StaticResource MaterialDesignBackground}" Columns="1">
-                    <ListBox 
-                            Width="200"
-                            VerticalAlignment="Center"
-                            SelectionMode="Extended"
-                            Grid.Row="1"
-                            HorizontalContentAlignment="Stretch"
-                            Background="Transparent"
-                            ItemsSource = "{Binding GetCollection}"
-                            BorderThickness="0"                  
-                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"                                                     
-                            SelectedItem="{Binding Category}">
-                    </ListBox>
-                </UniformGrid>
-            </StackPanel>
 
         </Grid>
 
         <Grid x:Name="Quiz" 
-              Margin="629,38,74,103">
+              Margin="593,58,110,70">
+
+            <ComboBox x:Name="CmbBox" 
+                      Style="{StaticResource MaterialDesignComboBox}"
+                      FontFamily="NSimSun" 
+                      FontSize="16" 
+                      ItemsSource="{Binding GetCollection}"
+                      SelectedItem="{Binding Category}" 
+                      md:HintAssist.Hint="{Binding Name}"
+                      Margin="2,50,0,0" 
+                      VerticalAlignment="Top">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
+                                Text="{Binding Name}" 
+                                Foreground="White" 
+                                FontFamily="NSimSun" 
+                                FontSize="16"
+                                Background="Black">
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <Path 
+                Data="M81.35,156.937 L373.799,156.937" 
+                Fill="White" 
+                HorizontalAlignment="Center" 
+                Height="1" 
+                Margin="0,78,0,0" 
+                Stretch="Fill" 
+                Stroke="White" 
+                VerticalAlignment="Top" 
+                Width="293"/>
 
             <TextBlock 
                 HorizontalAlignment="Left" 
                 Text="Quiz" 
-                Height="31.922"
-                Margin="83.529,10,0,0" 
+                Height="32"
+                Margin="94,0,0,0" 
                 TextWrapping="Wrap" 
                 VerticalAlignment="Top" 
-                Width="106.064" 
+                Width="106" 
                 Foreground="White" 
-                FontSize="20" 
+                FontSize="20"              
                 FontFamily="NSimSun" 
                 TextAlignment="Center"/>
 
-            <TextBox 
+            <TextBox
                 x:Name = "QuestionBox"
                 HorizontalAlignment="Left" 
                 Height="34" 
@@ -218,11 +271,11 @@
                 Foreground="White" 
                 SelectionBrush="#FF232629" 
                 FontFamily="NSimSun" 
-                FontSize="16" 
+                FontSize="16"           
                 HorizontalContentAlignment="Left" 
                 VerticalContentAlignment="Center" MaxLength="12"
-                Text="{Binding Question, UpdateSourceTrigger=PropertyChanged}"/>
-
+                Text="{Binding Question}"/>
+            
             <TextBlock IsHitTestVisible="False" FontFamily="NSimSun" Text="Question" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,107,0,0" Foreground="White"  FontSize="16" Height="25" Width="293">
                 <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
@@ -235,6 +288,7 @@
                     </Style>
                 </TextBlock.Style>
             </TextBlock>
+
 
             <Path 
                 Data="M81.35,156.937 L373.799,156.937" 
@@ -453,7 +507,7 @@
                 FontFamily="NSimSun"            
                 VerticalAlignment="Top" 
                 HorizontalAlignment="Center"
-                Margin="0,534,0,0" 
+                Margin="0,575,0,0" 
                 Foreground="DarkRed"
                 FontSize="16" 
                 Height="25" 
@@ -474,9 +528,9 @@
                 Content="Creation" 
                 HorizontalAlignment="Left" 
                 Height="24" 
-                Margin="84,480,0,0" 
+                Margin="88,528,0,0" 
                 VerticalAlignment="Top" 
-                Width="117" 
+                Width="118" 
                 RenderTransformOrigin="0.495,1.19" 
                 Background="{x:Null}" 
                 BorderBrush="{x:Null}" 

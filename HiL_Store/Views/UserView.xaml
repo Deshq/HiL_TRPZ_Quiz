@@ -3,48 +3,104 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:HiL_Store.Views"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1000">
     <Border CornerRadius="5" Background="Black">
         <Grid>
-            <Grid x:Name="CreateTest" Margin="0,0,704,0">
-                <Button 
-                Content="Get CategoryList" 
-                HorizontalAlignment="Left" 
-                Height="24" 
-                Margin="50,69,0,0" 
-                VerticalAlignment="Top" 
-                Width="200" 
-                RenderTransformOrigin="0.495,1.19" 
-                Background="{x:Null}" 
-                BorderBrush="{x:Null}" 
-                Foreground="White" 
-                FontFamily="NSimSun" 
-                FontSize="16"               
-                Command="{Binding CategoryGetCommand}"/>
 
-                <StackPanel HorizontalAlignment="Left" Margin="50,100,0,450">
-                    <UniformGrid Background="{StaticResource MaterialDesignBackground}" Columns="1">
-                        <ListBox 
-                            Width="200"
-                            VerticalAlignment="Center"
-                            SelectionMode="Extended"
-                            Grid.Row="1"
-                            HorizontalContentAlignment="Stretch"
-                            Background="Transparent"
-                            ItemsSource = "{Binding GetCollection}"
-                            BorderThickness="0"                  
-                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"                                                     
-                            SelectedItem="{Binding Category}">
-                        </ListBox>
-                    </UniformGrid>
-                </StackPanel>
+            <Grid x:Name="CreateTest" Margin="0,0,704,0">
+
+                <Grid x:Name="Image" 
+                      Margin="10,16,10,504">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="68*"/>
+                        <ColumnDefinition Width="45*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="191*"/>
+                        <RowDefinition Height="185*"/>
+                    </Grid.RowDefinitions>
+                    <Border 
+                        CornerRadius="12" 
+                        BorderBrush="White" 
+                        BorderThickness="2"              
+                        Height="200" 
+                        Width="267"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top"
+                        Margin="5,20,0,0" 
+                        Grid.RowSpan="2" Grid.ColumnSpan="2">
+
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Resources/HiL.png" 
+                                Stretch="UniformToFill"/>
+                        </Border.Background>
+                        <Grid>
+                            <Grid 
+                                HorizontalAlignment="Right" 
+                                VerticalAlignment="Top" 
+                                Margin="16">
+                                <Rectangle 
+                                    Height="21" 
+                                    RadiusX="8" 
+                                    RadiusY="8" 
+                                    Width="41" 
+                                    Fill="#FFF7542E"/>
+                                <TextBlock 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center" 
+                                    Foreground="White" 
+                                    FontWeight="SemiBold" 
+                                    FontSize="8" 
+                                    Text="USER"/>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <ComboBox x:Name="CmbBox" 
+                      SelectedIndex="0"
+                      Style="{StaticResource MaterialDesignComboBox}"
+                      FontFamily="NSimSun" 
+                      FontSize="16" 
+                      ItemsSource="{Binding GetCollection}"
+                      SelectedItem="{Binding Category}" 
+                      md:HintAssist.Hint="{Binding Name}"
+                      Margin="47,267,47,0" 
+                      VerticalAlignment="Top">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock 
+                                Text="{Binding Name}" 
+                                Foreground="White" 
+                                FontFamily="NSimSun" 
+                                FontSize="16"
+                                Background="Black">
+                                </TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <Path 
+                    Data="M81.35,156.937 L373.799,156.937" 
+                    Fill="White" 
+                    HorizontalAlignment="Center" 
+                    Height="1" 
+                    Margin="0,296,0,0" 
+                    Stretch="Fill" 
+                    Stroke="White" 
+                    VerticalAlignment="Top" 
+                    Width="202"/>
 
                 <Rectangle 
                     HorizontalAlignment="Left" 
                     Height="41" 
-                    Margin="70,321,0,0" 
+                    Margin="70,543,0,0" 
                     VerticalAlignment="Top" 
                     Width="157" 
                     Stroke="White"/>
@@ -52,7 +108,7 @@
                     Data="M164,338 L124.16667,338 123.49966,369.5" 
                     HorizontalAlignment="Left" 
                     Height="32.5" 
-                    Margin="51,307,0,0" 
+                    Margin="51,527,0,0" 
                     Stretch="Fill"
                     Stroke="White" 
                     VerticalAlignment="Top" 
@@ -62,7 +118,7 @@
                     Data="M164,338 L124.16667,338 123.49966,369.5" 
                     HorizontalAlignment="Left" 
                     Height="32.5" 
-                    Margin="206,346,0,0" 
+                    Margin="206,567,0,0" 
                     Stretch="Fill" 
                     Stroke="White" 
                     VerticalAlignment="Top" 
@@ -82,11 +138,11 @@
 
                 <Button 
                     Content="START TEST" 
-                    HorizontalAlignment="Left" 
+                    HorizontalAlignment="Center" 
                     Height="41" 
-                    Margin="70,321,0,0" 
+                    Margin="0,543,0,0" 
                     VerticalAlignment="Top" 
-                    Width="157" 
+                    Width="156" 
                     RenderTransformOrigin="0.495,1.19" 
                     Background="{x:Null}" 
                     BorderBrush="{x:Null}" 
@@ -117,22 +173,53 @@
             </Path>
 
             <Grid x:Name="Test" Margin="301,0,0,0">
+                
+                <TextBlock 
+                    HorizontalAlignment="Left" 
+                    Text="Question list" 
+                    Height="32"
+                    Margin="100,43,0,0" 
+                    TextWrapping="Wrap" 
+                    VerticalAlignment="Top" 
+                    Width="132" 
+                    Foreground="White" 
+                    FontSize="20" 
+                    FontFamily="NSimSun" 
+                    TextAlignment="Center"/>
 
-                <StackPanel HorizontalAlignment="Left" Margin="48,118,0,166">
-                    <UniformGrid Background="{StaticResource MaterialDesignBackground}" Columns="1">
-                        <ListBox 
-                            Width="200"
-                            VerticalAlignment="Center"
-                            SelectionMode="Extended"
-                            Grid.Row="1"
-                            HorizontalContentAlignment="Stretch"
-                            Background="Transparent"
-                            ItemsSource = "{Binding GetCollection2}"
-                            BorderThickness="0"                  
-                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"                                                     
-                            SelectedItem="{Binding Category2}">
-                        </ListBox>
-                    </UniformGrid>
+                <StackPanel HorizontalAlignment="Left" Margin="48,80,0,305" Width="236">
+
+                    <ComboBox x:Name="CmbBox2" 
+                      SelectedIndex="0"
+                      Style="{StaticResource MaterialDesignComboBox}"
+                      FontFamily="NSimSun" 
+                      FontSize="16" 
+                      ItemsSource="{Binding GetCollection2}"
+                      SelectedItem="{Binding Category2}" 
+                      md:HintAssist.Hint="{Binding Name}"
+                      Margin="20,30,20,0" 
+                      VerticalAlignment="Top">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock 
+                                        Background="Black"
+                                        Foreground="White"
+                                        Text ="{Binding Quiz}"                                        
+                                        FontFamily="NSimSun" 
+                                        FontSize="16" >
+                                    </TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Path 
+                        Data="M81.35,156.937 L373.799,156.937" 
+                        Fill="White" 
+                        Height="1" 
+                        Stretch="Fill" 
+                        Stroke="White" 
+                        Width="202"/>
                 </StackPanel>
 
                 <TextBox 
@@ -164,6 +251,7 @@
                     </TextBlock.Style>
                 </TextBlock>
 
+
                 <Path 
                     Data="M81.35,156.937 L373.799,156.937" 
                     Fill="White" 
@@ -176,20 +264,20 @@
                     Width="293.449"/>
 
                 <TextBox 
-                x:Name = "AnswerABox"
-                HorizontalAlignment="Left" 
-                Height="34" 
-                Margin="350,162,0,0" 
-                TextWrapping="Wrap"  
-                VerticalAlignment="Top" 
-                Width="293" 
-                Foreground="White" 
-                SelectionBrush="#FF232629" 
-                FontFamily="NSimSun" 
-                FontSize="16" 
-                HorizontalContentAlignment="Left" 
-                VerticalContentAlignment="Center" MaxLength="12"
-                Text="{Binding AnswerA, UpdateSourceTrigger=PropertyChanged}"/>
+                    x:Name = "AnswerABox"
+                    HorizontalAlignment="Left" 
+                    Height="34" 
+                    Margin="350,162,0,0" 
+                    TextWrapping="Wrap"  
+                    VerticalAlignment="Top" 
+                    Width="293" 
+                    Foreground="White" 
+                    SelectionBrush="#FF232629" 
+                    FontFamily="NSimSun" 
+                    FontSize="16" 
+                    HorizontalContentAlignment="Left" 
+                    VerticalContentAlignment="Center" MaxLength="12"
+                    Text="{Binding AnswerA, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock IsHitTestVisible="False" FontFamily="NSimSun" Text="AnswerA" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="350,170,0,0" Foreground="White"  FontSize="16" Height="25" Width="293">
                     <TextBlock.Style>
@@ -205,32 +293,32 @@
                 </TextBlock>
 
                 <Path 
-                Data="M81.35,156.937 L373.799,156.937" 
-                Fill="White" 
-                HorizontalAlignment="Left" 
-                Height="1" 
-                Margin="350,196,0,0" 
-                Stretch="Fill" 
-                Stroke="White" 
-                VerticalAlignment="Top" 
-                Width="293.449"/>
+                    Data="M81.35,156.937 L373.799,156.937" 
+                    Fill="White" 
+                    HorizontalAlignment="Left" 
+                    Height="1" 
+                    Margin="350,196,0,0" 
+                    Stretch="Fill" 
+                    Stroke="White" 
+                    VerticalAlignment="Top" 
+                    Width="293.449"/>
 
 
                 <TextBox 
-                x:Name = "AnswerBBox"
-                HorizontalAlignment="Left" 
-                Height="34" 
-                Margin="350,225,0,0" 
-                TextWrapping="Wrap"  
-                VerticalAlignment="Top" 
-                Width="293" 
-                Foreground="White" 
-                SelectionBrush="#FF232629" 
-                FontFamily="NSimSun" 
-                FontSize="16" 
-                HorizontalContentAlignment="Left" 
-                VerticalContentAlignment="Center" MaxLength="12"
-                Text="{Binding AnswerB, UpdateSourceTrigger=PropertyChanged}"/>
+                    x:Name = "AnswerBBox"
+                    HorizontalAlignment="Left" 
+                    Height="34" 
+                    Margin="350,225,0,0" 
+                    TextWrapping="Wrap"  
+                    VerticalAlignment="Top" 
+                    Width="293" 
+                    Foreground="White" 
+                    SelectionBrush="#FF232629" 
+                    FontFamily="NSimSun" 
+                    FontSize="16" 
+                    HorizontalContentAlignment="Left" 
+                    VerticalContentAlignment="Center" MaxLength="12"
+                    Text="{Binding AnswerB, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock IsHitTestVisible="False" FontFamily="NSimSun" Text="AnswerB" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="350,233,0,0" Foreground="White"  FontSize="16" Height="25" Width="293">
                     <TextBlock.Style>
@@ -246,31 +334,31 @@
                 </TextBlock>
 
                 <Path 
-                Data="M81.35,156.937 L373.799,156.937" 
-                Fill="White" 
-                HorizontalAlignment="Left" 
-                Height="1" 
-                Margin="350,259,0,0" 
-                Stretch="Fill" 
-                Stroke="White" 
-                VerticalAlignment="Top" 
-                Width="293.449"/>
+                    Data="M81.35,156.937 L373.799,156.937" 
+                    Fill="White" 
+                    HorizontalAlignment="Left" 
+                    Height="1" 
+                    Margin="350,259,0,0" 
+                    Stretch="Fill" 
+                    Stroke="White" 
+                    VerticalAlignment="Top" 
+                    Width="293.449"/>
 
                 <TextBox 
-                x:Name = "AnswerCBox"
-                HorizontalAlignment="Left" 
-                Height="34" 
-                Margin="350,288,0,0" 
-                TextWrapping="Wrap"  
-                VerticalAlignment="Top" 
-                Width="293" 
-                Foreground="White" 
-                SelectionBrush="#FF232629" 
-                FontFamily="NSimSun" 
-                FontSize="16" 
-                HorizontalContentAlignment="Left" 
-                VerticalContentAlignment="Center" MaxLength="12"
-                Text="{Binding AnswerC, UpdateSourceTrigger=PropertyChanged}"/>
+                    x:Name = "AnswerCBox"
+                    HorizontalAlignment="Left" 
+                    Height="34" 
+                    Margin="350,288,0,0" 
+                    TextWrapping="Wrap"  
+                    VerticalAlignment="Top" 
+                    Width="293" 
+                    Foreground="White" 
+                    SelectionBrush="#FF232629" 
+                    FontFamily="NSimSun" 
+                    FontSize="16" 
+                    HorizontalContentAlignment="Left" 
+                    VerticalContentAlignment="Center" MaxLength="12"
+                    Text="{Binding AnswerC, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock IsHitTestVisible="False" FontFamily="NSimSun" Text="AnswerC" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="350,296,0,0" Foreground="White"  FontSize="16" Height="25" Width="293">
                     <TextBlock.Style>
@@ -286,31 +374,31 @@
                 </TextBlock>
 
                 <Path 
-                Data="M81.35,156.937 L373.799,156.937" 
-                Fill="White" 
-                HorizontalAlignment="Left" 
-                Height="1" 
-                Margin="350,322,0,0" 
-                Stretch="Fill" 
-                Stroke="White" 
-                VerticalAlignment="Top" 
-                Width="293.449"/>
+                    Data="M81.35,156.937 L373.799,156.937" 
+                    Fill="White" 
+                    HorizontalAlignment="Left" 
+                    Height="1" 
+                    Margin="350,322,0,0" 
+                    Stretch="Fill" 
+                    Stroke="White" 
+                    VerticalAlignment="Top" 
+                    Width="293.449"/>
 
                 <TextBox 
-                x:Name = "AnswerDBox"
-                HorizontalAlignment="Left" 
-                Height="34" 
-                Margin="350,351,0,0" 
-                TextWrapping="Wrap"  
-                VerticalAlignment="Top" 
-                Width="293" 
-                Foreground="White" 
-                SelectionBrush="#FF232629" 
-                FontFamily="NSimSun" 
-                FontSize="16" 
-                HorizontalContentAlignment="Left" 
-                VerticalContentAlignment="Center" MaxLength="12"
-                Text="{Binding AnswerD, UpdateSourceTrigger=PropertyChanged}"/>
+                    x:Name = "AnswerDBox"
+                    HorizontalAlignment="Left" 
+                    Height="34" 
+                    Margin="350,351,0,0" 
+                    TextWrapping="Wrap"  
+                    VerticalAlignment="Top" 
+                    Width="293" 
+                    Foreground="White" 
+                    SelectionBrush="#FF232629" 
+                    FontFamily="NSimSun" 
+                    FontSize="16" 
+                    HorizontalContentAlignment="Left" 
+                    VerticalContentAlignment="Center" MaxLength="12"
+                    Text="{Binding AnswerD, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock IsHitTestVisible="False" FontFamily="NSimSun" Text="AnswerD" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="350,359,0,0" Foreground="White"  FontSize="16" Height="25" Width="293">
                     <TextBlock.Style>
@@ -326,15 +414,15 @@
                 </TextBlock>
 
                 <Path 
-                Data="M81.35,156.937 L373.799,156.937" 
-                Fill="White" 
-                HorizontalAlignment="Left" 
-                Height="1" 
-                Margin="350,385,0,0" 
-                Stretch="Fill" 
-                Stroke="White" 
-                VerticalAlignment="Top" 
-                Width="293.449"/>
+                    Data="M81.35,156.937 L373.799,156.937" 
+                    Fill="White" 
+                    HorizontalAlignment="Left" 
+                    Height="1" 
+                    Margin="350,385,0,0" 
+                    Stretch="Fill" 
+                    Stroke="White" 
+                    VerticalAlignment="Top" 
+                    Width="293.449"/>
 
                 <Rectangle 
                     HorizontalAlignment="Left" 
@@ -432,31 +520,31 @@
 
 
                 <Path 
-                Data="M81.35,156.937 L373.799,156.937" 
-                Fill="White" 
-                HorizontalAlignment="Left" 
-                Height="1" 
-                Margin="350,612,0,0" 
-                Stretch="Fill" 
-                Stroke="White" 
-                VerticalAlignment="Top" 
-                Width="293.449"/>
+                    Data="M81.35,156.937 L373.799,156.937" 
+                    Fill="White" 
+                    HorizontalAlignment="Left" 
+                    Height="1" 
+                    Margin="350,612,0,0" 
+                    Stretch="Fill" 
+                    Stroke="White" 
+                    VerticalAlignment="Top" 
+                    Width="293.449"/>
 
                 <TextBox 
-                x:Name = "Result"
-                HorizontalAlignment="Left" 
-                Height="34" 
-                Margin="350,578,0,0" 
-                TextWrapping="Wrap"  
-                VerticalAlignment="Top" 
-                Width="293" 
-                Foreground="White" 
-                SelectionBrush="#FF232629" 
-                FontFamily="NSimSun" 
-                FontSize="16" 
-                HorizontalContentAlignment="Left" 
-                VerticalContentAlignment="Center" MaxLength="12"
-                Text="{Binding FinalResul, UpdateSourceTrigger=PropertyChanged}"/>
+                    x:Name = "Result"
+                    HorizontalAlignment="Left" 
+                    Height="34" 
+                    Margin="350,578,0,0" 
+                    TextWrapping="Wrap"  
+                    VerticalAlignment="Top" 
+                    Width="293" 
+                    Foreground="White" 
+                    SelectionBrush="#FF232629" 
+                    FontFamily="NSimSun" 
+                    FontSize="16" 
+                    HorizontalContentAlignment="Left" 
+                    VerticalContentAlignment="Center" MaxLength="12"
+                    Text="{Binding FinalResul, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock IsHitTestVisible="False" FontFamily="NSimSun" Text="Result" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="350,586,0,0" Foreground="White"  FontSize="16" Height="25" Width="293">
                     <TextBlock.Style>

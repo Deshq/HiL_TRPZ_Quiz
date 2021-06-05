@@ -157,6 +157,8 @@ namespace HiL_Store.ViewModels
 			QuizCreationCommand = new QuizCreationCommand(this, quizCreationService);
 			ViewLoginCommand = new RenavigateCommand(loginRenavigator);
 			CategoryGetCommand = new CategoryGetCommand(this, categoryService);
+
+			CategoryGetCommand.Execute(categoryService);
 		}
 
 	}

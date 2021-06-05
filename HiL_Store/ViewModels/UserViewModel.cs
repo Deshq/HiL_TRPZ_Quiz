@@ -145,7 +145,7 @@ namespace HiL_Store.ViewModels
 			get => _finalResult;
 			set
 			{
-				_finalResult = _userResult.CountOfCorrectAnswer.ToString();
+				_finalResult = "Count of right answers: " + _userResult.CountOfCorrectAnswer.ToString();
 				OnPropertyChanged(nameof(FinalResul));
 			}
 		}
@@ -183,6 +183,8 @@ namespace HiL_Store.ViewModels
 			CategoryGetCommand = new GetCategoryListCommand(this, categoryService);
 
 			DisplayUserResultCommand = new DisplayUserResultCommand(this, userResultCreationService, accountStore, countQuestionsService);
+
+			CategoryGetCommand.Execute(categoryService);
 		}
     }
 }

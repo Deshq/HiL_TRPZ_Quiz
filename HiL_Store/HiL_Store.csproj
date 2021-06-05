@@ -4,10 +4,16 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Resources\bebop.jpg" />
+    <None Remove="Resources\HiL.png" />
     <None Remove="Resources\HIL2.png" />
     <None Remove="Resources\what.gif" />
   </ItemGroup>
@@ -36,6 +42,7 @@
 
   <ItemGroup>
     <Resource Include="Resources\bebop.jpg" />
+    <Resource Include="Resources\HiL.png" />
     <Resource Include="Resources\HIL2.png" />
     <Resource Include="Resources\icons.xaml">
       <Generator>MSBuild:Compile</Generator>

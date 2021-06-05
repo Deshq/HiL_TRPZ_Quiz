@@ -22,5 +22,10 @@ namespace HiL_Store.Views
         {
             InitializeComponent();
         }
+
+        private void QuestionBox_TextInput(object sender, TextCompositionEventArgs e)
+        {
+
+        }
     }
 }

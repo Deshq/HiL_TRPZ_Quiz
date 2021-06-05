@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiL_Store.Domain", "HiL_Sto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiL_Store.EntityFramework", "HiL_Store.EntityFramework\HiL_Store.EntityFramework.csproj", "{62F40271-208D-40CA-ABFA-63F918BC491D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiL_Store.Domain.Tests", "HiL_Store.Domain.Tests\HiL_Store.Domain.Tests.csproj", "{FA4F3493-304A-4372-A8CF-EE64C09E11DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiL_Store.Domain.Tests", "HiL_Store.Domain.Tests\HiL_Store.Domain.Tests.csproj", "{FA4F3493-304A-4372-A8CF-EE64C09E11DF}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "HiL_Setup", "HiL_Setup\HiL_Setup.vdproj", "{75099283-29F3-41CC-AA48-01C94447F64D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiL_Store.IntegrationTests", "HiL_Store.IntegrationTests\HiL_Store.IntegrationTests.csproj", "{BAC4F23F-FAFF-4BD6-A85D-1089E6DDC1DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,12 @@ Global
 		{FA4F3493-304A-4372-A8CF-EE64C09E11DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA4F3493-304A-4372-A8CF-EE64C09E11DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA4F3493-304A-4372-A8CF-EE64C09E11DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75099283-29F3-41CC-AA48-01C94447F64D}.Debug|Any CPU.ActiveCfg = Debug
+		{75099283-29F3-41CC-AA48-01C94447F64D}.Release|Any CPU.ActiveCfg = Release
+		{BAC4F23F-FAFF-4BD6-A85D-1089E6DDC1DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAC4F23F-FAFF-4BD6-A85D-1089E6DDC1DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAC4F23F-FAFF-4BD6-A85D-1089E6DDC1DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAC4F23F-FAFF-4BD6-A85D-1089E6DDC1DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
